@@ -1,0 +1,4 @@
+Design Main page 
+--Search bar for plants
+--Figure out the API 
+--Cards for each plant
