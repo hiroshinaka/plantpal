@@ -1,0 +1,51 @@
+.login--container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of the viewport */
+    background-color: #f8f9fa; /* Optional: light background color */
+  }
+  
+  .login--content {
+    width: 100%;
+    max-width: 400px; /* Adjust as needed */
+    padding: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-tabs {
+    justify-content: center; /* Center the tabs */
+
+  }
+  
+  .nav-tabs .nav-item {
+    margin-bottom: -1px; /* Prevent margin affecting the layout */
+  }
+  
+  .nav-tabs .nav-link {
+    border: 1px solid transparent;
+    border-radius: .25rem .25rem 0 0;
+    color: #007bff; /* Bootstrap primary color */
+    border-bottom: none; /* Remove bottom border of nav-link */
+  }
+  
+  .nav-tabs .nav-link.active {
+    color: #495057; /* Darker color for active tab */
+    background-color: #fff;
+    border-color: #dee2e6 #dee2e6 transparent; /* Make bottom border transparent */
+    border-bottom: 1px solid white; /* Add bottom border to match the tab content */
+  }
+  
+  .tab-pane {
+    padding: 20px; /* Add padding to the tab content */
+    background-color: #fff;
+    border-top: none; /* Remove the top border to connect with tabs */
+  }
+  .tab-content{
+    background-color: #fff;
+    border-top: none; /* Remove the top border to connect with tabs */
+  }
+  

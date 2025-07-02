@@ -1,0 +1,43 @@
+/* NavBar.css */
+
+/* General styling for the Navbar */
+@media (min-width: )
+.navbar {
+    background-color: #f8f9fa; /* Bootstrap bg-body-tertiary color */
+    padding: 1rem 2rem; /* Increased padding for a larger navbar */
+    border-bottom: 1px solid #e7e7e7;
+  }
+  
+  /* Navbar Brand styling */
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem; 
+    font-weight: bold;
+    font-family: "Playwrite AT", cursive;
+    color: #092a24;
+    text-decoration: none;
+  }
+  
+  /* Logo styling within the Navbar Brand */
+  .navbar-brand img {
+    margin-right: 1rem; 
+    width: 50px; 
+    height: 50px; 
+  }
+  
+  /* Hover effect for the Navbar Brand */
+  .navbar-brand:hover {
+    color: #007bff;
+  }
+  
+  /* Container adjustments for alignment */
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 0px;
+    margin-right: 0px;
+
+  }
+  
