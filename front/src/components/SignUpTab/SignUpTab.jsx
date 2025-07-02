@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useAuth} from '../../context/AuthContext'
 
 export default function SignUpTab() {
     const [formData, setFormData] = useState({
@@ -12,13 +13,19 @@ export default function SignUpTab() {
         password: ''
     });
 
+    const [errors, setErrors] = useState([])    
     const { firstName, lastName, email, password } = formData;
     const navigate = useNavigate(); // Initialize the useNavigate hook
+    const { login } = useAuth(); 
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
     const onSubmit = async e => {
         e.preventDefault();
+        if (!firstName || !lastName || !email || !password) {
+            setErrors([{ msg: 'All fields are required' }]);
+            return;
+        }
         try {
             const config = {
                 headers: {
@@ -28,9 +35,18 @@ export default function SignUpTab() {
             const body = JSON.stringify(formData);
             const res = await axios.post('/api/users', body, config); // Relative URL
             console.log(res.data);
+            login(res.data.token); // store token just like login flow
             navigate('/main'); // Navigate to the main page on success
         } catch (err) {
             console.error(err.response.data);
+            const responseErrors = err.response?.data?.errors;
+            if (Array.isArray(responseErrors)) {
+                setErrors(responseErrors);
+            } else if (typeof err.response?.data === 'string') {
+                setErrors([{ msg: err.response.data }]);
+            } else {
+                setErrors([{ msg: 'Registration failed' }]);
+            }
         }
     };
 
@@ -86,6 +102,13 @@ export default function SignUpTab() {
             <Button variant="primary" type="submit">
                 Submit
             </Button>
+            {Array.isArray(errors) && errors.length > 0 && (
+                <ul>
+                    {errors.map((error, index) => (
+                        <li key={index}>{error.msg}</li>
+                    ))}
+                </ul>
+            )}
         </Form>
     );
 }
