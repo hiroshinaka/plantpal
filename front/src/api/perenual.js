@@ -18,3 +18,17 @@ export const getPlants = async (searchTerm = '') => {
     throw error;
   }
 };
+
+export const getPlantDetails = async (plantId) => {
+  try{
+    const response = await axios.get(`https://perenual.com/api/species/details/${plantId}`, {
+      params: {
+        key: API_KEY,  
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching plant details:', error);
+    throw error;
+  }
+};
