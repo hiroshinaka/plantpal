@@ -1,0 +1,35 @@
+.plant-card {
+    display: flex;
+    align-items: flex-start; /* Align text with top of image */
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 16px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    max-width: 700px;
+    background-color: #fff;
+}
+
+.plant-image-details {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.plant-info {
+    flex: 1;
+}
+
+.plant-info h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.plant-info p {
+    margin: 6px 0;
+    font-size: 1rem;
+}

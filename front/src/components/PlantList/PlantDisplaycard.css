@@ -1,0 +1,52 @@
+/* Modal sizing & scroll */
+.modal-body {
+  max-height: 72vh;        /* keeps it on screen */
+  overflow-y: auto;        /* scroll vertically if needed */
+  padding-right: 8px;      /* room for scrollbar so content doesn’t jiggle */
+}
+
+/* Responsive grid for cards */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+/* Card */
+.plant-display-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 10px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+  min-width: 0; /* prevents overflow from long text */
+}
+
+/* Image stays contained and consistent */
+.plant-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;     /* keeps a stable card height */
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+/* Title + text */
+.plant-display-card h3 {
+  font-size: 1.1rem;
+  margin: 10px 4px 0;
+  line-height: 1.25;
+  word-wrap: break-word;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;    /* clamp long names to 2 lines */
+  -webkit-box-orient: vertical;
+}
+
+@media (max-width: 520px) {
+  .results-grid {
+    grid-template-columns: 1fr; /* single column on small screens */
+  }
+}
